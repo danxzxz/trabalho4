@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>Inico</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="shortcut icon" type="imagens" href="imagens/logo2-escura.png">
@@ -25,7 +26,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Faturamento Anual</h5>
                                 <p class="card-text">R$ 3.200.000,00</p>
-                                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detalhes">Ver Detalhes</a>
+                                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detalhes">Ver
+                                    Detalhes</a>
                             </div>
                         </div>
                     </div>
@@ -35,7 +37,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Clientes Ativos</h5>
                                 <p class="card-text">5.720</p>
-                                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detalhes">Ver Detalhes</a>
+                                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detalhes">Ver
+                                    Detalhes</a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +48,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Garrafas Vendidas</h5>
                                 <p class="card-text">32.800</p>
-                                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detalhes">Ver Detalhes</a>
+                                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detalhes">Ver
+                                    Detalhes</a>
                             </div>
                         </div>
                     </div>
@@ -55,7 +59,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">Fornecedores</h5>
                                 <p class="card-text">18</p>
-                                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detalhes">Ver Detalhes</a>
+                                <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detalhes">Ver
+                                    Detalhes</a>
                             </div>
                         </div>
                     </div>
@@ -81,90 +86,91 @@
                     </div>
                 </div>
 
-            </div> 
-        </div> 
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
     <script>
         const salesByRegionData = {
-    labels: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'],
-    datasets: [{
-        label: 'Vendas (R$)',
-        data: [980, 1502, 2802, 5360, 3666],
-        backgroundColor: 'rgba(94,18,36)', 
-        borderColor: 'rgba(139, 0, 0, 1)',
-        borderWidth: 1
-    }]
-};
+            labels: ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'],
+            datasets: [{
+                label: 'Vendas (R$)',
+                data: [980, 1502, 2802, 5360, 3666],
+                backgroundColor: 'rgba(94,18,36)',
+                borderColor: 'rgba(139, 0, 0, 1)',
+                borderWidth: 1
+            }]
+        };
 
-const salesByRegionConfig = {
-    type: 'bar',
-    data: salesByRegionData,
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white' 
-                }
-            }
-        },
-        scales: {
-            x: {
-                ticks: {
-                    color: 'white'
-                }
-            },
-            y: {
-                ticks: {
-                    color: 'white' 
+        const salesByRegionConfig = {
+            type: 'bar',
+            data: salesByRegionData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
                 },
-                beginAtZero: true
-            }
-        }
-    }
-};
-
-new Chart(
-    document.getElementById('salesByRegionChart'),
-    salesByRegionConfig
-);
-
-const wineTypesData = {
-    labels: ['Seco', 'Suave', 'Espumante', 'Rosé'],
-    datasets: [{
-        data: [50, 30, 15, 5], // percentual de vendas
-        backgroundColor: ['rgba(139, 0, 0, 0.7)', 'rgba(255, 99, 132, 0.7)', 'rgba(161,100,100)', 'rgba(255, 182, 193, 0.7)'],
-        borderColor: ['rgba(139, 0, 0, 1)', 'rgba(255, 99, 132, 1)', 'rgba(161,100,150)', 'rgba(255, 182, 193, 1)'],
-        borderWidth: 1
-    }]
-};
-
-const wineTypesConfig = {
-    type: 'pie',
-    data: wineTypesData,
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white' 
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: 'white'
+                        },
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    }
-};
+        };
 
-new Chart(
-    document.getElementById('paymentMethodsChart'),
-    wineTypesConfig
-);
+        new Chart(
+            document.getElementById('salesByRegionChart'),
+            salesByRegionConfig
+        );
+
+        const wineTypesData = {
+            labels: ['Seco', 'Suave', 'Espumante', 'Rosé'],
+            datasets: [{
+                data: [50, 30, 15, 5], // percentual de vendas
+                backgroundColor: ['rgba(139, 0, 0, 0.7)', 'rgba(255, 99, 132, 0.7)', 'rgba(161,100,100)', 'rgba(255, 182, 193, 0.7)'],
+                borderColor: ['rgba(139, 0, 0, 1)', 'rgba(255, 99, 132, 1)', 'rgba(161,100,150)', 'rgba(255, 182, 193, 1)'],
+                borderWidth: 1
+            }]
+        };
+
+        const wineTypesConfig = {
+            type: 'pie',
+            data: wineTypesData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                }
+            }
+        };
+
+        new Chart(
+            document.getElementById('paymentMethodsChart'),
+            wineTypesConfig
+        );
     </script>
-    
+
 
 </body>
+
 </html>
