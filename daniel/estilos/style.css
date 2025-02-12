@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Definição das variáveis de cores */
+:root {
+    --cor-fundo: #d4c6c2;
+    --cor-navbar: #a19896;
+    --cor-footer-text: #FFF;
+    --cor-sidebar: #5e1224;
+    --cor-sidebar-hover: #ffffff9e;
+    --cor-botao-hover: gray;
+    --cor-card-background: rgba(0, 0, 0, 0.2);
+    --cor-card-border: rgb(0, 0, 0);
+    --cor-card-border-hover: rgb(0, 0, 0);
+}
+
+/* Estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Montserrat", serif;
+    font-weight: 400;
+    background-color: var(--cor-fundo);
+}
+
+/* Navbar */
+#container-navbar span {
+    font-size: 40px;
+}
+.navbar, footer {
+    background-color: var(--cor-navbar);
+}
+
+footer {
+    color: var(--cor-footer-text);
+}
+
+/* Perfil */
+.profile {
+    border: 1px black solid;
+}
+
+.profile:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 20px 10px var(--cor-card-bord);
+}
+
+/* Pagina dashboard */
+.card-body canvas {
+    max-width: 100%;
+    height: 30vw;
+}
+
+/* Estilo da página de produtos */
+.table {
+    width: 80%;
+    border: 1px black solid;
+}
+
+#tabelaProdutos tr:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 20px 10px var(--cor-card-bord);
+}
+
+/* Estilo para o menu lateral */
+.sidebar {
+    min-height: 100%;
+    height: 100vh;
+    background: var(--cor-sidebar);
+    color: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.sidebar a:hover:not(:nth-child(1)){
+    background: var(--cor-sidebar-hover);
+    color: black;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+}
+
+.img {
+    width: 200px;
+    height: 200px;
+}
+
+/* Estilo para o cadastro */
+.formulario {
+    max-width: 100vh;
+    margin: 0 auto;
+    border: 1px black solid;
+    background-color: #7a2c3d; 
+
+}
+.formulario label {
+    color: white !important;
+}
+
+.formulariobg{
+    border: 1px black solid;
+    background-color: #7a2c3d; 
+}
+.tablebg{
+    border: 1px black solid;
+    background-color: #7a2c3d; 
+}
+
+.botao button:hover {
+    background-color: var(--cor-botao-hover);
+}
+
+/* Ocultar a sidebar em telas pequenas */
+@media (max-width: 995px) {
+    .sidebar {
+        position: fixed;
+        z-index: 1021 !important;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}
+
+
+
+.card {
+    background-color: #d4c6c2; /* Fundo dos cards escuro */
+    color: black; /* Texto branco */
+    border: 1px solid #333; /* Borda mais escura */
+}
+
+.card-header {
+    background-color: #a19896; /* Fundo do cabeçalho dos gráficos */
+    color: black;
+}
+
+.card a.btn {
+    background-color: #641b1b; 
+    border: none;
+    color: rgb(255, 255, 255);
+}
+
+.card a.btn:hover {
+    background-color: #9b111e; /* Efeito hover mais claro */
+}
+
+/* Ajustando o fundo do gráfico */
+canvas {
+    background-color: #a19896; /* Fundo escuro para gráficos */
+    border-radius: 10px;
+}

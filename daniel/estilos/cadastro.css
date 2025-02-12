@@ -1,0 +1,138 @@
+:root {
+    --cor-fundo: #5e1224;
+    --cor-navbar: #a19896;
+    --cor-footer-text: #FFF;
+    --cor-sidebar: #5e1224;
+    --cor-sidebar-hover: #ffffff9e;
+    --cor-botao-hover: gray;
+    --cor-card-background: #5e2f3a;
+    --cor-card-border: rgb(0, 0, 0);
+    --cor-card-border-hover: rgb(0, 0, 0);
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background: var(--cor-fundo);
+}
+
+.main {
+    width: 350px;
+    height: 500px;
+    overflow: hidden;
+    background: var(--cor-fundo);
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px var(--cor-card-border);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    width: 400px; /* Ajusta a largura proporcional ao formulário */
+    height: auto; /* Mantém proporção da imagem */
+    margin-right: 50px; 
+}
+
+#chk {
+    display: none;
+}
+
+
+.signup {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+label {
+    color: var(--cor-footer-text);
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+
+input {
+    width: 60%;
+    height: 10px;
+    background: var(--cor-navbar);
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: var(--cor-footer-text);
+}
+
+
+button {
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: var(--cor-footer-text);
+    background: var(--cor-sidebar);
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
+}
+
+
+button:hover {
+    background: var(--cor-botao-hover);
+}
+
+
+.login {
+    height: 460px;
+    background: var(--cor-card-background);
+    border-radius: 60% / 10%;
+    transform: translateY(-180px);
+    transition: .8s ease-in-out;
+}
+
+
+.login label {
+    color: var(--cor-sidebar);
+    transform: scale(.6);
+}
+
+
+#chk:checked ~ .login {
+    transform: translateY(-500px);
+}
+
+
+#chk:checked ~ .login label {
+    transform: scale(1);
+}
+
+
+#chk:checked ~ .signup label {
+    transform: scale(.6);
+}

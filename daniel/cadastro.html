@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro</title>
+
+    <link rel="shortcut icon" type="imagens" href="imagens/logo2-escura.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+
+<body>
+    <div class="container-fluid d-flex flex-column" style="height: 100vh;">
+
+        <div class="row flex-grow d-flex">
+            <div class="col-lg-2 col-4 p-0" id="container-sidebar">
+            </div>
+
+            <div class="col-lg-10 col-12 d-flex flex-column">
+                <div class="navbar row sticky-top mb-4 shadow-lg">
+                    <div class="m-0 p-0" id="container-navbar"></div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row m-0 d-flex justify-content-center">
+                        <div class="col-12 col-lg-10">
+                            <div class="card-form row m-3">
+                                <div class="formulario p-5 rounded-3">
+                                    <h4 class="text-center">CADASTRO</h4>
+
+                                    <div class="mb-3 col-12">
+                                        <label for="nomeVinho" class="form-label">Nome do Vinho</label>
+                                        <input class="form-control" type="text" id="nomeVinho">
+                                    </div>
+
+                                    <div class="mb-3 col-12">
+                                        <label for="vinicola" class="form-label">Vinícola</label>
+                                        <input class="form-control" type="text" id="vinicola">
+                                    </div>
+
+                                    <div class="mb-3 col-12">
+                                        <label for="tipoVinho" class="form-label">Tipo de Vinho</label>
+                                        <select class="form-control" id="tipoVinho">
+                                            <option value="Tinto">Tinto</option>
+                                            <option value="Branco">Branco</option>
+                                            <option value="Rosé">Rosé</option>
+                                            <option value="Espumante">Espumante</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 col-12">
+                                        <label for="precoVinho" class="form-label">Preço do Vinho (R$)</label>
+                                        <input type="number" class="form-control" id="precoVinho" min="0" step="0.01">
+                                    </div>
+
+                                    <div class="mb-3 col-12">
+                                        <label for="estoque" class="form-label">Estoque</label>
+                                        <input type="number" class="form-control" id="estoque" min="0">
+                                    </div>
+
+                                    <div class="col-12 d-flex justify-content-center align-items-center gap-3">
+                                        <button class="btn btn-dark btn-sm" style="width: 180px; height: 50px;"
+                                            id="botaoSalvar">Salvar</button>
+                                        <img src="imagens/logo2-escura-removebg.png"
+                                            style="width: 180px; height: 180px;" alt="Logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="detalhes">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5">Salvar</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Seu produto foi cadastrado com sucesso!
+                            </div>
+                            <div class="modal-footer">
+                                <button onclick="fecharModal()" type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Fechar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        function fecharModal() {
+            const modal = bootstrap.Modal.getInstance(document.getElementById("detalhes"));
+            if (modal) modal.hide();
+            document.body.classList.remove("modal-open");
+            document.querySelectorAll(".modal-backdrop").forEach(el => el.remove());
+        }
+        document.getElementById('botaoSalvar').addEventListener('click', function () {
+            const nome = document.getElementById('nomeVinho').value;
+            const vinicola = document.getElementById('vinicola').value;
+            const tipo = document.getElementById('tipoVinho').value;
+            const preco = document.getElementById('precoVinho').value;
+            const estoque = document.getElementById('estoque').value;
+
+            if (!nome || !vinicola || !preco || !estoque) {
+                alert("Preencha todos os campos obrigatórios!");
+                return;
+            }
+
+            let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+            const novoProduto = {
+                nome,
+                vinicola,
+                tipo,
+                preco: parseFloat(preco).toFixed(2),
+                estoque: parseInt(estoque)
+            };
+            produtos.push(novoProduto);
+            localStorage.setItem('produtos', JSON.stringify(produtos));
+
+            document.getElementById('nomeVinho').value = '';
+            document.getElementById('vinicola').value = '';
+            document.getElementById('tipoVinho').value = 'Tinto';
+            document.getElementById('precoVinho').value = '';
+            document.getElementById('estoque').value = '';
+
+            const modal = new bootstrap.Modal(document.getElementById('detalhes'));
+            modal.show();
+        });
+    </script>
+
+</body>
+
+</html>

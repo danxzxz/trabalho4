@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="estilos/login.css">
+    <link rel="shortcut icon" type="imagens" href="imagens/logo2-escura.png">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="logo-container">
+        </div>
+        <img src="imagens/logo-075.png" class="logo">
+
+        <div class="main">      
+            <input type="checkbox" id="chk" aria-hidden="true">
+
+            
+            <div class="signup">
+                <form>
+
+                    <label for="chk" aria-hidden="true">Cadastre-se</label>
+                    <input type="text" name="txt" placeholder="Nome de usuário" required="">
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="number" name="broj" placeholder="Telefone" required="">
+                    <input type="password" name="pswd" placeholder="Senha" required="">
+                    <button>Salvar</button>
+                </form>
+            </div>
+
+            <div class="login">
+                <form>
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="email" name="email" placeholder="Email" required="">
+                    <input type="password" name="pswd" placeholder="Senha" required="">
+                    <button>Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function redirectToInicio(event) {
+            event.preventDefault(); 
+            window.location.href = "inicio.html"; 
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector(".signup form").addEventListener("submit", redirectToInicio);
+            document.querySelector(".login form").addEventListener("submit", redirectToInicio);
+        });
+    </script>
+</body>
+</html>
